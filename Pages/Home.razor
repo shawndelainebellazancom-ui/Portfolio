@@ -1,0 +1,902 @@
+﻿@page "/"
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+@using Telerik.Blazor
+@using Telerik.Blazor.Components
+@using Telerik.FontIcons
+
+<PageTitle>Shawn Delaine Bellazan - Principal AI Architect</PageTitle>
+
+<div class="portfolio-container" id="portfolio-content">
+    <!-- Hero Section - Split Design -->
+    <div class="hero-section">
+        <div class="hero-left">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    STRENGTH IN<br />
+                    VULNERABILITY,<br />
+                    POWER IN<br />
+                    EXPRESSION.
+                </h1>
+                <div class="hero-cta">
+                    <p class="cta-question">READY TO DOMINATE?</p>
+                    <p class="cta-subtitle">Let's discuss your next power move</p>
+                    <TelerikButton OnClick="@StartConversation"
+                                   ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                                   Size="@ThemeConstants.Button.Size.Large"
+                                   Class="cta-button">
+                        START THE CONVERSATION
+                    </TelerikButton>
+                </div>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-image-container">
+                <div class="hero-graphic">
+                    <div class="graphic-circle"></div>
+                    <div class="graphic-pattern"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="#work" class="nav-link" onclick="@(() => ScrollToSection("work"))">WORK</a>
+            <a href="#victories" class="nav-link" onclick="@(() => ScrollToSection("victories"))">VICTORIES</a>
+            <a href="#impact" class="nav-link" onclick="@(() => ScrollToSection("impact"))">IMPACT</a>
+            <a href="#contact" class="nav-link" onclick="@(() => ScrollToSection("contact"))">CONTACT</a>
+        </div>
+    </nav>
+
+    <!-- Work Section -->
+    <section id="work" class="section work-section">
+        <div class="section-content">
+            <h2 class="section-title">WORK</h2>
+            <div class="work-grid">
+                <TelerikCard Class="work-card">
+                    <CardHeader>
+                        <CardTitle>
+                            <span style="color: #d4a574 !important;">🧠 Tooensure - AI Agent Company</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardBody>
+                        <p><strong>Principal AI Architect</strong></p>
+                        <p class="work-description">Built an autonomous AI system that thinks about thinking—creating self-improving agents that learn, adapt, and evolve their own capabilities through recursive self-reference. This breakthrough architecture enables AI to optimize itself, making it smarter with each cycle.</p>
+                        <p><strong>Key Results:</strong></p>
+                        <ul class="work-outcomes">
+                            <li>Created a cognitive architecture that improves itself through self-reflection</li>
+                            <li>Built real-time dashboard for monitoring AI thought processes</li>
+                            <li>Developed scalable microservices system handling complex AI workflows</li>
+                            <li>Enabled AI to execute tasks autonomously while tracking its reasoning</li>
+                        </ul>
+                        <details class="tech-details">
+                            <summary><strong>Technical Details</strong></summary>
+                            <ul class="tech-list">
+                                <li>PMCR-O Platform: Planner → Maker → Checker → Reflector → Orchestrator microservices</li>
+                                <li>.NET 10 + Aspire 13 microservices architecture</li>
+                                <li>Microsoft Agent Framework (MAF) with IChatClient & function invocation</li>
+                                <li>gRPC services with Ollama local LLM integration</li>
+                                <li>Telerik Blazor Dashboard with real-time cognitive trail visualization</li>
+                                <li>PostgreSQL + pgvector for RAG knowledge vault</li>
+                                <li>Redis for caching and state management</li>
+                                <li>SignalR for real-time cognitive trail updates</li>
+                            </ul>
+                        </details>
+                        <div class="project-links">
+                            <a href="https://github.com/tooensure" target="_blank" class="github-link">
+                                <span>🔗</span> View on GitHub
+                            </a>
+                        </div>
+                    </CardBody>
+                </TelerikCard>
+
+                <TelerikCard Class="work-card">
+                    <CardHeader>
+                        <CardTitle>
+                            <span style="color: #d4a574 !important;">🚌 Go-To Transit</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardBody>
+                        <p><strong>Lead Developer</strong></p>
+                        <p class="work-description">Built a production mobile app that simplifies public transit ticket purchasing. Launched to Google Play Store with seamless billing integration, secure authentication, and works offline when connectivity is poor—critical for transit users.</p>
+                        <p><strong>Key Results:</strong></p>
+                        <ul class="work-outcomes">
+                            <li>✅ Successfully launched to Google Play Store</li>
+                            <li>✅ Seamless in-app purchases with Google Play Billing</li>
+                            <li>✅ Works offline—users can access tickets without internet</li>
+                            <li>✅ Secure user authentication and data sync</li>
+                            <li>✅ Cross-platform codebase (Android + iOS-ready)</li>
+                        </ul>
+                        <details class="tech-details">
+                            <summary><strong>Technical Details</strong></summary>
+                            <ul class="tech-list">
+                                <li>Kotlin Multiplatform 2.2.21 (Android, iOS-ready)</li>
+                                <li>Jetpack Compose UI with Voyager navigation</li>
+                                <li>Room Database + SQLite for offline-first data</li>
+                                <li>Ktor Client for networking with JSON serialization</li>
+                                <li>Koin for dependency injection</li>
+                                <li>Firebase (Auth, Firestore, Analytics, Crashlytics)</li>
+                                <li>Google Play Billing 7.1.1 integration</li>
+                                <li>Modular architecture with domain/feature separation</li>
+                            </ul>
+                        </details>
+                        <div class="project-links">
+                            <a href="https://github.com/tooensure/MetroTransitApp" target="_blank" class="github-link">
+                                <span>🔗</span> View on GitHub
+                            </a>
+                        </div>
+                    </CardBody>
+                </TelerikCard>
+
+                <TelerikCard Class="work-card">
+                    <CardHeader>
+                        <CardTitle>
+                            <span style="color: #d4a574 !important;">🏠 Property Recovery Platform</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardBody>
+                        <p><strong>Architect & Developer</strong></p>
+                        <p class="work-description">Designed a field operations platform for property management teams working in areas with unreliable connectivity. GPS-stamped logs, photo capture, and data sync ensure nothing is lost—even when working offline in remote locations.</p>
+                        <p><strong>Key Results:</strong></p>
+                        <ul class="work-outcomes">
+                            <li>✅ Fully functional offline—works without internet connection</li>
+                            <li>✅ GPS tracking for accurate location documentation</li>
+                            <li>✅ Photo capture and media management in the field</li>
+                            <li>✅ Automatic sync when connection is restored</li>
+                            <li>✅ Modular design for easy feature expansion</li>
+                        </ul>
+                        <details class="tech-details">
+                            <summary><strong>Technical Details</strong></summary>
+                            <ul class="tech-list">
+                                <li>Kotlin Multiplatform with Compose UI</li>
+                                <li>Modular architecture: domain, features, platform modules</li>
+                                <li>Offline-first with Room Database & DataStore</li>
+                                <li>Ktor networking, Koin DI, Coroutines</li>
+                                <li>Field operations with GPS, media capture, cognitive trails</li>
+                                <li>Platform abstraction layers for auth, analytics, design-system</li>
+                            </ul>
+                        </details>
+                        <div class="project-links">
+                            <a href="https://github.com/tooensure" target="_blank" class="github-link">
+                                <span>🔗</span> View on GitHub
+                            </a>
+                        </div>
+                    </CardBody>
+                </TelerikCard>
+            </div>
+        </div>
+    </section>
+
+    <!-- Victories Section -->
+    <section id="victories" class="section victories-section">
+        <div class="section-content">
+            <h2 class="section-title">VICTORIES</h2>
+            <TelerikTileLayout Columns="3" RowHeight="200px" ColumnSpacing="20px" RowSpacing="20px">
+                <TileLayoutItems>
+                    <TileLayoutItem HeaderText="🚀 Production Apps">
+                        <Content>
+                            <p>
+                                Successfully launched Go-To Transit to Google Play Store. Production-ready,
+                                enterprise-grade mobile application.
+                            </p>
+                        </Content>
+                    </TileLayoutItem>
+                    <TileLayoutItem HeaderText="🧠 PMCR-O Framework">
+                        <Content>
+                            <p>
+                                Architected and implemented .NET Aspire microservices framework for self-referential AI cognition.
+                                Strange Loop architecture with Microsoft Agent Framework, gRPC services, and real-time dashboard
+                                enabling emergent AI thought.
+                            </p>
+                        </Content>
+                    </TileLayoutItem>
+                    <TileLayoutItem HeaderText="🔧 Multi-Stack Expertise">
+                        <Content>
+                            <p>
+                                .NET 10 + Aspire microservices, C# + Blazor, Kotlin Multiplatform + Compose, Microsoft Agent Framework,
+                                gRPC, SignalR, Ktor, Room, PostgreSQL, Redis, Firebase. Enterprise architecture across languages.
+                            </p>
+                        </Content>
+                    </TileLayoutItem>
+                    <TileLayoutItem HeaderText="🏗️ Enterprise Architecture">
+                        <Content>
+                            <p>
+                                Designed and implemented enterprise-grade software architectures.
+                                Clean Architecture, Dependency Injection, modular design.
+                            </p>
+                        </Content>
+                    </TileLayoutItem>
+                    <TileLayoutItem HeaderText="🔥 AI Innovation">
+                        <Content>
+                            <p>
+                                Pioneering work in autonomous AI agents. Behavioral Intent Programming,
+                                Cognitive Trails, Digital Immortality protocols.
+                            </p>
+                        </Content>
+                    </TileLayoutItem>
+                    <TileLayoutItem HeaderText="💪 Multi-Language Full-Stack">
+                        <Content>
+                            <p>
+                                Polyglot developer: .NET 10 + Aspire microservices, C# + Blazor, Kotlin Multiplatform + Jetpack Compose,
+                                gRPC, SignalR, Ktor, Firebase, Room, PostgreSQL, Redis. Cross-platform mobile & cloud-native web.
+                            </p>
+                        </Content>
+                    </TileLayoutItem>
+                </TileLayoutItems>
+            </TelerikTileLayout>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact" class="section impact-section">
+        <div class="section-content">
+            <h2 class="section-title">IMPACT</h2>
+            <div class="impact-content">
+                <TelerikCard Class="impact-card">
+                    <CardBody>
+                        <h3>Architecting the Future of AI</h3>
+                        <p>
+                            I'm not just building software—I'm architecting the future of autonomous AI agents with .NET Aspire
+                            and Microsoft Agent Framework. PMCR-O represents a fundamental shift in how AI systems think, learn,
+                            and evolve. Built as microservices with gRPC, real-time cognitive trails, and self-referential Strange
+                            Loops—I'm creating AI that doesn't just execute commands, it engages in emergent thought.
+                        </p>
+                    </CardBody>
+                </TelerikCard>
+                <TelerikCard Class="impact-card">
+                    <CardBody>
+                        <h3>Real-World Solutions</h3>
+                        <p>
+                            Every line of code I write serves a purpose. Go-To Transit helps people navigate
+                            their cities. Property Recovery protects communities. PMCR-O enables AI to think
+                            about thinking. I build solutions that matter, that solve real problems, that
+                            make an impact.
+                        </p>
+                    </CardBody>
+                </TelerikCard>
+                <TelerikCard Class="impact-card">
+                    <CardBody>
+                        <h3>Technical Excellence Across Stacks</h3>
+                        <p>
+                            I don't cut corners. I build production-ready, enterprise-grade software across .NET and Kotlin ecosystems.
+                            Modular architecture, offline-first design, microservices with Aspire, multiplatform mobile with KMP,
+                            comprehensive testing, and deployment-ready code. When I say it's done, it's done right—in C#, Kotlin, or both.
+                        </p>
+                    </CardBody>
+                </TelerikCard>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="section-content">
+            <h2 class="section-title">CONTACT</h2>
+            <TelerikCard Class="contact-card">
+                <CardBody>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:tooensuremaster@gmail.com">tooensuremaster@gmail.com</a></p>
+                        <p><strong>Website:</strong> <a href="https://tooensure.com" target="_blank">tooensure.com</a></p>
+                        <p><strong>Portfolio:</strong> <a href="https://shawndelainebellazan.com" target="_blank">shawndelainebellazan.com</a></p>
+                    </div>
+                    <TelerikButton OnClick="@StartConversation"
+                                   ThemeColor="@ThemeConstants.Button.ThemeColor.Primary"
+                                   Size="@ThemeConstants.Button.Size.Large">
+                        START THE CONVERSATION
+                    </TelerikButton>
+                </CardBody>
+            </TelerikCard>
+        </div>
+    </section>
+</div>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .portfolio-container {
+        width: 100%;
+        min-height: 100vh;
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
+    }
+
+    /* Hero Section - Split Design */
+    .hero-section {
+        display: flex;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    .hero-left {
+        flex: 2;
+        background: linear-gradient(135deg, #d4a574 0%, #8b7355 50%, #5a4a3a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .hero-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+    .hero-content {
+        max-width: 600px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-title {
+        font-size: 5.5rem;
+        font-weight: 900;
+        line-height: 1.1;
+        color: #1a1a1a;
+        text-shadow: 3px 3px 0px rgba(255,255,255,0.3), -1px -1px 0px rgba(0,0,0,0.2);
+        margin-bottom: 3rem;
+        letter-spacing: -3px;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-cta {
+        margin-top: 3rem;
+        animation: fadeInUp 1.2s ease-out;
+    }
+
+    .cta-question {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
+
+    .cta-subtitle {
+        font-size: 1.2rem;
+        color: #1a1a1a;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .cta-button {
+        padding: 1.4rem 3rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border: 3px solid #1a1a1a;
+        background: transparent;
+        color: #1a1a1a;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+        .cta-button:hover {
+            background: #1a1a1a;
+            color: #d4a574;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+    .hero-right {
+        flex: 1;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-image-container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-graphic {
+        width: 400px;
+        height: 400px;
+        position: relative;
+        animation: rotate 20s linear infinite;
+    }
+
+    .graphic-circle {
+        width: 100%;
+        height: 100%;
+        border: 3px solid #d4a574;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+        .graphic-circle::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #d4a574;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #d4a574;
+        }
+
+    .graphic-pattern {
+        width: 80%;
+        height: 80%;
+        border: 2px solid rgba(212, 165, 116, 0.5);
+        border-radius: 50%;
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        animation: rotate 15s linear infinite reverse;
+    }
+
+    @@keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Navigation */
+    .top-nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1.5rem 2rem;
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(10px);
+        border-bottom-left-radius: 20px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-link {
+        color: #d4a574;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        position: relative;
+    }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #d4a574;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            background: rgba(212, 165, 116, 0.1);
+        }
+
+            .nav-link:hover::after {
+                width: 80%;
+            }
+
+    /* Sections */
+    .section {
+        padding: 8rem 4rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .section-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .section-title {
+        font-size: 6rem;
+        font-weight: 900;
+        margin-bottom: 4rem;
+        color: #d4a574;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        text-shadow: 0 0 30px rgba(212, 165, 116, 0.5);
+        position: relative;
+        display: inline-block;
+    }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #d4a574, transparent);
+        }
+
+    .work-section {
+        background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+
+    .work-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 2.5rem;
+    }
+
+    .work-card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+        border: 1px solid rgba(212, 165, 116, 0.2);
+        color: #fff;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+            border-color: #d4a574;
+            box-shadow: 0 8px 40px rgba(212, 165, 116, 0.3);
+        }
+
+        .work-card :deep(.k-card-header) {
+            background: rgba(212, 165, 116, 0.2) !important;
+            border-bottom: 1px solid rgba(212, 165, 116, 0.4) !important;
+        }
+
+        .work-card :deep(.k-card-title) {
+            color: #d4a574 !important;
+            font-size: 1.5rem !important;
+            font-weight: 700 !important;
+        }
+
+        .work-card :deep(.k-card-header) {
+            color: #d4a574 !important;
+        }
+
+        .work-card :deep(.k-card-header h1),
+        .work-card :deep(.k-card-header h2),
+        .work-card :deep(.k-card-header h3),
+        .work-card :deep(.k-card-header h4),
+        .work-card :deep(.k-card-header h5),
+        .work-card :deep(.k-card-header h6),
+        .work-card :deep(.k-card-header span),
+        .work-card :deep(.k-card-header div),
+        .work-card :deep(.k-card-header p),
+        .work-card :deep(.k-card-header *) {
+            color: #d4a574 !important;
+        }
+
+        /* Force override for Telerik CardTitle - multiple selectors for maximum compatibility */
+        .work-card :deep([class*="card-title"]),
+        .work-card :deep([class*="k-card-title"]),
+        .work-card :deep([class*="CardTitle"]),
+        .work-card :deep(h3),
+        .work-card :deep(h4),
+        .work-card :deep(h5),
+        .work-card :deep(.k-card-title-text),
+        .work-card :deep(.k-card-header-text) {
+            color: #d4a574 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Global override for any remaining dark text in headers */
+        .work-card .k-card-header,
+        .work-card [class*="card-header"] {
+            color: #d4a574 !important;
+        }
+
+            .work-card .k-card-header * {
+                color: #d4a574 !important;
+            }
+
+        .work-card ul {
+            margin-top: 1.5rem;
+            padding-left: 1.5rem;
+            list-style: none;
+        }
+
+        .work-card li {
+            margin: 0.8rem 0;
+            color: #d4a574;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+            .work-card li::before {
+                content: '▸';
+                position: absolute;
+                left: 0;
+                color: #d4a574;
+                font-weight: bold;
+            }
+
+    .work-description {
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+        color: #e0e0e0;
+    }
+
+    .work-outcomes {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+        .work-outcomes li {
+            color: #e0e0e0;
+        }
+
+    .tech-details {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(212, 165, 116, 0.2);
+    }
+
+        .tech-details summary {
+            cursor: pointer;
+            color: #d4a574;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            user-select: none;
+            transition: color 0.3s;
+        }
+
+            .tech-details summary:hover {
+                color: #fff;
+            }
+
+    .tech-list {
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+        list-style: none;
+    }
+
+        .tech-list li {
+            margin: 0.5rem 0;
+            color: #888;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+            .tech-list li::before {
+                content: '▸';
+                position: absolute;
+                left: 0;
+                color: #666;
+                font-weight: bold;
+            }
+
+    .project-links {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid rgba(212, 165, 116, 0.2);
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .github-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #d4a574;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border: 1px solid rgba(212, 165, 116, 0.3);
+        border-radius: 4px;
+        transition: all 0.3s;
+    }
+
+        .github-link:hover {
+            background: rgba(212, 165, 116, 0.1);
+            border-color: #d4a574;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+    .victories-section {
+        background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
+    }
+
+        .victories-section :deep(.k-tilelayout-item) {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            color: #fff;
+        }
+
+        .victories-section :deep(.k-tilelayout-item-header) {
+            background: rgba(212, 165, 116, 0.1);
+            color: #d4a574;
+            font-weight: 700;
+        }
+
+    .impact-section {
+        background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+    }
+
+    .impact-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+    }
+
+    .impact-card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+        border: 1px solid rgba(212, 165, 116, 0.2);
+        color: #fff;
+        transition: all 0.4s;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+        .impact-card:hover {
+            transform: translateY(-8px);
+            border-color: #d4a574;
+            box-shadow: 0 8px 40px rgba(212, 165, 116, 0.3);
+        }
+
+        .impact-card h3 {
+            color: #d4a574;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+    .contact-section {
+        background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
+    }
+
+    .contact-card {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+        border: 1px solid rgba(212, 165, 116, 0.3);
+        color: #fff;
+        max-width: 700px;
+        margin: 0 auto;
+        box-shadow: 0 8px 40px rgba(212, 165, 116, 0.2);
+    }
+
+    .contact-info {
+        margin-bottom: 2.5rem;
+        font-size: 1.2rem;
+        line-height: 2;
+    }
+
+        .contact-info a {
+            color: #d4a574;
+            text-decoration: none;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+            .contact-info a:hover {
+                color: #fff;
+                border-bottom-color: #d4a574;
+            }
+
+    @@media (max-width: 1024px) {
+        .hero-title {
+            font-size: 4rem;
+        }
+
+        .section-title {
+            font-size: 4.5rem;
+        }
+
+        .work-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .hero-section {
+            flex-direction: column;
+        }
+
+        .hero-left,
+        .hero-right {
+            flex: 1;
+            min-height: 50vh;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+        }
+
+        .top-nav {
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0;
+            width: 100%;
+            right: 0;
+        }
+
+        .nav-links {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-graphic {
+            width: 250px;
+            height: 250px;
+        }
+    }
+</style>
+
+@code {
+    private async Task StartConversation()
+    {
+        var subject = Uri.EscapeDataString("Let's Discuss Your Next Power Move");
+        var body = Uri.EscapeDataString("I'm ready to dominate. Let's talk.");
+        var mailtoLink = $"mailto:tooensuremaster@gmail.com?subject={subject}&body={body}";
+        await JS.InvokeVoidAsync("window.open", mailtoLink, "_blank");
+    }
+
+    private async Task ScrollToSection(string sectionId)
+    {
+        await JS.InvokeVoidAsync("eval", $@"
+            document.getElementById('{sectionId}').scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+        ");
+    }
+}
